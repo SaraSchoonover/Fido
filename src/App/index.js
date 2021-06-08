@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
+import Routes from '../helpers/Routes';
 import 'firebase/auth';
 import './App.scss';
 import NavBar from './components/NavBar';
@@ -21,6 +22,9 @@ function App() {
   return (
     <>
     <NavBar />
+    <Routes
+       admin={admin}
+      />
       </>
   );
 }
