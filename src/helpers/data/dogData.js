@@ -39,5 +39,5 @@ export {
   getDogs,
   addDogs,
   deleteDogs,
-  updateDogs
+  updateDogs,
 };

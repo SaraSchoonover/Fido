@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Home from '../views/Home';
 import WishList from '../views/WishList';
 import Dogs from '../views/Dogs';
+import AboutUs from '../views/AboutUs';
 import DogForm from '../forms/DogForm';
 
 export default function Routes({ setDogs }) {
@@ -21,6 +22,11 @@ export default function Routes({ setDogs }) {
         <Route
           path='/wishlist'
           component={WishList}
+        />
+
+        <Route
+          path='/about-us'
+          component={AboutUs}
         />
 
         <Route
