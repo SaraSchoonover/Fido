@@ -1,20 +1,38 @@
-import React from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import WishListCard from '../App/components/WishListCard';
+import { getWishList } from '../helpers/data/wishListData';
 
-export default function About() {
+function WishList() {
+  const [wishlist, setWishlist] = useState([]);
+
+  useEffect(() => {
+    getWishList()
+      .then((dogsArray) => {
+        setWishlist(dogsArray);
+      });
+  }, []);
+
   return (
-  <>
-    <Container>
-      <Row>
-        <Col>
-          <div>
-            <h2>DOG WISHLIST</h2>
-            <p></p>
-          </div></Col>
-        <Col className="bio-img">
-        </Col>
-      </Row>
-    </Container>
-  </>
+    <div className="this">
+      <h2>Your Wishlist: </h2>
+      <div className="card-container">
+      {wishlist.map((dogInfo) => (
+        <WishListCard
+        key={dogInfo.firebaseKey}
+        firebaseKey={dogInfo.firebaseKey}
+        age ={dogInfo.age}
+        breedId={dogInfo.breedId}
+        status={dogInfo.status}
+        name={dogInfo.name}
+        description={dogInfo.description}
+        imageUrl={dogInfo.imageUrl}
+        setWishList={setWishlist}
+        WishList={wishlist}
+        />
+      ))}
+      </div>
+    </div>
   );
 }
+
+export default WishList;

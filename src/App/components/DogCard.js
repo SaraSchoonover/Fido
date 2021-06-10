@@ -10,6 +10,8 @@ import {
 import PropTypes from 'prop-types';
 import { deleteDogs } from '../../helpers/data/dogData';
 import DogForm from '../../forms/DogForm';
+// import { addWishList } from '../../helpers/data/wishListData';
+import WishListForm from '../../forms/WishListForm';
 
 const DogCard = ({
   age,
@@ -19,18 +21,24 @@ const DogCard = ({
   imageUrl,
   name,
   status,
-  setDogs
+  setDogs,
+  setWishlist,
 }) => {
   const [editing, setEditing] = useState(false);
 
+  const [adding, setAdding] = useState(false);
+
   const handleClick = (fbKey, type) => {
     switch (type) {
-      case 'edit':
-        setEditing((prevState) => !prevState);
+      case 'addToWishList':
+        setAdding((prevState) => !prevState);
         break;
       case 'delete':
         deleteDogs(fbKey)
           .then((dogsArray) => setDogs(dogsArray));
+        break;
+      case 'edit':
+        setEditing((prevState) => !prevState);
         break;
       default:
     }
@@ -38,6 +46,8 @@ const DogCard = ({
 
   const editCard = (fbKey) => (
     <div className='editbtns'>
+      <Button
+       onClick={() => handleClick(fbKey, 'addToWishList')}> Add To Wishlist</Button>
       <Button onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i> Delete</Button>
       <Button
        onClick={() => handleClick(fbKey, 'edit')}>
@@ -56,7 +66,6 @@ const DogCard = ({
         <img width="100%" src={imageUrl} alt="Card image cap" />
         <CardBody>
           <CardText>{description}</CardText>
-          <CardText>{imageUrl}</CardText>
           <CardText>{status}</CardText>
           <CardText>{breedId}</CardText>
           { editCard(firebaseKey) }
@@ -69,6 +78,18 @@ const DogCard = ({
               name={name}
               status={status}
               setDogs={setDogs}
+              setWishlist={setWishlist}
+          /> }
+          { adding && <WishListForm
+              age={age}
+              breedId={breedId}
+              description={description}
+              firebaseKey={firebaseKey}
+              imageUrl={imageUrl}
+              name={name}
+              status={status}
+              setDogs={setDogs}
+              setWishlist={setWishlist}
           /> }
           </CardBody>
       </Card>
@@ -78,6 +99,7 @@ const DogCard = ({
 
 DogCard.propTypes = {
   setDogs: PropTypes.func,
+  setWishlist: PropTypes.func,
   age: PropTypes.string,
   breedId: PropTypes.string,
   description: PropTypes.string,
