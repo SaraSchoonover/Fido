@@ -13,7 +13,7 @@ const DogForm = ({
   imageUrl,
   name,
   status,
-  setDogs
+  setDogs,
 
 }) => {
   const [dog, setDog] = useState({
@@ -131,6 +131,7 @@ DogForm.propTypes = {
   imageUrl: PropTypes.string,
   firebaseKey: PropTypes.string,
   setDogs: PropTypes.func,
+  admin: PropTypes.any
 };
 
 export default DogForm;

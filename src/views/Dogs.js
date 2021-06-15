@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DogCard from '../App/components/DogCard';
 import { getDogs } from '../helpers/data/dogData';
 
-function Dogs() {
+function Dogs({ admin, user, uid }) {
   const [dogs, setDogs] = useState([]);
 
   useEffect(() => {
@@ -29,6 +29,9 @@ function Dogs() {
         imageUrl={dogInfo.imageUrl}
         setDogs={setDogs}
         dogs={dogs}
+        admin={admin}
+        user={user}
+        uid={uid}
         />
       ))}
       </div>
@@ -46,7 +49,9 @@ Dogs.propTypes = {
   description: PropTypes.string,
   dogs: PropTypes.array,
   setDogs: PropTypes.func,
-  admin: PropTypes.any
+  admin: PropTypes.any,
+  user: PropTypes.any,
+  uid: PropTypes.any
 };
 
 export default Dogs;

@@ -13,6 +13,7 @@ const WishListForm = ({
   imageUrl,
   name,
   status,
+  user,
 }) => {
   const [wishLists, setWishLists] = useState({
     age: age || '',
@@ -21,17 +22,17 @@ const WishListForm = ({
     name: name || '',
     imageUrl: imageUrl || '',
     status: status || '',
+    uid: user.uid || null,
     firebaseKey: firebaseKey || null
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addWishList(wishLists)
+    addWishList(wishLists, user)
       .then((dogsArray) => {
         setWishLists(dogsArray);
       });
   };
-  console.warn(setWishLists);
 
   // const handleInputChange = (e) => {
   //   setWishLists((prevState) => ({
@@ -63,7 +64,7 @@ WishListForm.propTypes = {
   imageUrl: PropTypes.string,
   firebaseKey: PropTypes.string,
   setWishlist: PropTypes.func,
-
+  user: PropTypes.any,
 };
 
 export default WishListForm;

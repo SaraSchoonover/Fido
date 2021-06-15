@@ -7,7 +7,7 @@ import Dogs from '../views/Dogs';
 import AboutUs from '../views/AboutUs';
 import DogForm from '../forms/DogForm';
 
-export default function Routes({ setDogs }) {
+export default function Routes({ setDogs, admin, user }) {
   return (
     <div>
       <Switch>
@@ -16,12 +16,16 @@ export default function Routes({ setDogs }) {
         <Route
         path='/dogs'
         component={() => <Dogs
+          admin={admin}
+          user={user}
           />}
         />
 
         <Route
           path='/wishlist'
-          component={WishList}
+          component={() => <WishList
+            user={user}
+          />}
         />
 
         <Route
@@ -42,5 +46,6 @@ export default function Routes({ setDogs }) {
 
 Routes.propTypes = {
   setDogs: PropTypes.func,
-  // admin: PropTypes.any
+  admin: PropTypes.any,
+  user: PropTypes.any
 };
