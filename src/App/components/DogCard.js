@@ -23,6 +23,9 @@ const DogCard = ({
   status,
   setDogs,
   setWishlist,
+  admin,
+  user,
+  uid
 }) => {
   const [editing, setEditing] = useState(false);
 
@@ -46,14 +49,19 @@ const DogCard = ({
 
   const editCard = (fbKey) => (
     <div className='editbtns'>
-      <Button
-       onClick={() => handleClick(fbKey, 'addToWishList')}> Add To Wishlist</Button>
       <Button onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i> Delete</Button>
       <Button
        onClick={() => handleClick(fbKey, 'edit')}>
       <i className="far fa-edit"></i>
     {editing ? 'Close Form' : ' Edit'}
     </Button>
+    </div>
+  );
+
+  const userCard = (fbKey) => (
+    <div className='editbtns'>
+      <Button
+       onClick={() => handleClick(fbKey, 'addToWishList')}> Add To Wishlist</Button>
     </div>
   );
 
@@ -68,7 +76,8 @@ const DogCard = ({
           <CardText>{description}</CardText>
           <CardText>{status}</CardText>
           <CardText>{breedId}</CardText>
-          { editCard(firebaseKey) }
+          { admin && editCard(firebaseKey) }
+          { user && userCard(firebaseKey) }
           { editing && <DogForm
               age={age}
               breedId={breedId}
@@ -79,6 +88,7 @@ const DogCard = ({
               status={status}
               setDogs={setDogs}
               setWishlist={setWishlist}
+              uid={uid}
           /> }
           { adding && <WishListForm
               age={age}
@@ -90,6 +100,8 @@ const DogCard = ({
               status={status}
               setDogs={setDogs}
               setWishlist={setWishlist}
+              user={user}
+              uid={uid}
           /> }
           </CardBody>
       </Card>
@@ -107,7 +119,9 @@ DogCard.propTypes = {
   imageUrl: PropTypes.string,
   name: PropTypes.string,
   status: PropTypes.string,
-  // admin: PropTypes.any
+  admin: PropTypes.any,
+  user: PropTypes.any,
+  uid: PropTypes.any
 };
 
 export default DogCard;

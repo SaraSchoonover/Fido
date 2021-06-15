@@ -9,6 +9,7 @@ import { getDogs } from '../helpers/data/dogData';
 function App() {
   const [admin, setAdmin] = useState(null);
   const [dogs, setDogs] = useState([]);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -22,10 +23,30 @@ function App() {
     });
   }, []);
 
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((authed) => {
+      if (authed) {
+        const userObj = {
+          fullName: authed.displayName,
+          profileImage: authed.photoURL,
+          uid: authed.uid,
+          user: authed.email
+        };
+        setUser(userObj);
+      } else if (user || user === null) {
+        setUser(false);
+      }
+    });
+  }, []);
+
   return (
     <>
-    <NavBar admin={admin}/>
+    <NavBar
+      admin={admin}
+      user={user}
+      />
     <Routes
+       user={user}
        admin={admin}
        dogs={dogs}
        setDogs={setDogs}

@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 import { signOutUser } from '../../helpers/auth';
 
-const NavBar = ({ admin }) => {
+const NavBar = ({ admin, user }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -22,11 +22,17 @@ const NavBar = ({ admin }) => {
   <NavItem>
     <Link className="nav-link" id="that" to="/add-dog">Add Dog Form</Link>
   </NavItem>
+  </>
+  );
+
+  const authenticatedUser = () => (
+    <>
   <NavItem>
     <Link className="nav-link" id="who" to="/wishlist">Wishlist</Link>
   </NavItem>
   </>
   );
+
   return (
     <div>
       <Navbar light expand="md">
@@ -41,12 +47,18 @@ const NavBar = ({ admin }) => {
     <Link className="nav-link" id="that" to="/about-us">About Us</Link>
   </NavItem>
           {admin && authenticated()}
+          {user && authenticatedUser()}
           <NavItem>
               {
                 admin !== null
                 && <NavItem>
                   {
                     admin
+                      ? <Button className='nav-link' color='link' onClick={signOutUser}>Logout</Button>
+                      : ''
+                  }
+                  {
+                    user
                       ? <Button className='nav-link' color='link' onClick={signOutUser}>Logout</Button>
                       : ''
                   }
@@ -61,7 +73,8 @@ const NavBar = ({ admin }) => {
 };
 
 NavBar.propTypes = {
-  admin: PropTypes.any
+  admin: PropTypes.any,
+  user: PropTypes.any
 };
 
 export default NavBar;

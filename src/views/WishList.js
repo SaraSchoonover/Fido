@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import WishListCard from '../App/components/WishListCard';
 import { getWishList } from '../helpers/data/wishListData';
 
-function WishList() {
+function WishList({ user }) {
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
-    getWishList()
+    getWishList(user)
       .then((dogsArray) => {
         setWishlist(dogsArray);
       });
@@ -26,13 +27,19 @@ function WishList() {
         name={dogInfo.name}
         description={dogInfo.description}
         imageUrl={dogInfo.imageUrl}
-        setWishList={setWishlist}
-        WishList={wishlist}
+        setWishlist={setWishlist}
+        wishlist={wishlist}
+        user={user}
         />
       ))}
       </div>
     </div>
   );
 }
+
+WishList.propTypes = {
+  user: PropTypes.any,
+
+};
 
 export default WishList;
