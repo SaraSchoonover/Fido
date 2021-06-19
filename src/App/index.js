@@ -27,8 +27,8 @@ function App() {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed) {
         const userObj = {
-          fullName: authed.displayName,
-          profileImage: authed.photoURL,
+          // fullName: authed.displayName,
+          // profileImage: authed.photoURL,
           uid: authed.uid,
           user: authed.email
         };

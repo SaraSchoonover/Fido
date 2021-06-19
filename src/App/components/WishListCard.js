@@ -19,7 +19,7 @@ const WishListCard = ({
   status,
   firebaseKey,
   setWishlist,
-  user
+  user,
 }) => {
   // const [deleting, setDeleting] = useState(false);
 

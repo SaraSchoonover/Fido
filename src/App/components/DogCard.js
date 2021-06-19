@@ -25,7 +25,8 @@ const DogCard = ({
   setWishlist,
   admin,
   user,
-  uid
+  uid,
+  isFavorited
 }) => {
   const [editing, setEditing] = useState(false);
 
@@ -69,15 +70,15 @@ const DogCard = ({
       <Card>
         <CardBody>
           <CardTitle tag="h5">{name}</CardTitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">{age}</CardSubtitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">Age: {age}</CardSubtitle>
         </CardBody>
         <img width="100%" src={imageUrl} alt="Card image cap" />
         <CardBody>
           <CardText>{description}</CardText>
-          <CardText>{status}</CardText>
-          <CardText>{breedId}</CardText>
+          <CardText>Status: {status}</CardText>
+          <CardText>Breed: {breedId}</CardText>
           { admin && editCard(firebaseKey) }
-          { user && userCard(firebaseKey) }
+          { isFavorited ? 'Added!' : userCard(firebaseKey) }
           { editing && <DogForm
               age={age}
               breedId={breedId}
@@ -89,7 +90,9 @@ const DogCard = ({
               setDogs={setDogs}
               setWishlist={setWishlist}
               uid={uid}
+              isFavorited={isFavorited}
           /> }
+
           { adding && <WishListForm
               age={age}
               breedId={breedId}
@@ -102,6 +105,7 @@ const DogCard = ({
               setWishlist={setWishlist}
               user={user}
               uid={uid}
+              dogId={firebaseKey}
           /> }
           </CardBody>
       </Card>
@@ -121,7 +125,8 @@ DogCard.propTypes = {
   status: PropTypes.string,
   admin: PropTypes.any,
   user: PropTypes.any,
-  uid: PropTypes.any
+  uid: PropTypes.any,
+  isFavorited: PropTypes.bool
 };
 
 export default DogCard;

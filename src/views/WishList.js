@@ -13,6 +13,7 @@ function WishList({ user }) {
       });
   }, []);
 
+  // console.warn(mergedData(user));
   return (
     <div className="this">
       <h2>Your Wishlist: </h2>
