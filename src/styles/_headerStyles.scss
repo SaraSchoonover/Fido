@@ -1,3 +1,20 @@
 .header-text {
-  text-align: center;
+  h2 {
+    text-align: right;
+    font-size: 2em;
+  }
+
+  display: block;
+  position: relative;
+
+}
+
+.bg-image {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/fido-e7f7f.appspot.com/o/dog-bg.jpg?alt=media&token=c0f27c6a-f40f-44ec-9998-046239de2e04');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 280px 60px;
+
 }

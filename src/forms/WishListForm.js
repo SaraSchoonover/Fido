@@ -4,6 +4,8 @@ import {
   Button, Form
 } from 'reactstrap';
 import { addWishList } from '../helpers/data/wishListData';
+// import { funca } from '../helpers/data/wishListData';
+// import { addWishList, funca } from '../helpers/data/wishListData';
 
 const WishListForm = ({
   age,
@@ -14,6 +16,7 @@ const WishListForm = ({
   name,
   status,
   user,
+  dogId
 }) => {
   const [wishLists, setWishLists] = useState({
     age: age || '',
@@ -23,7 +26,8 @@ const WishListForm = ({
     imageUrl: imageUrl || '',
     status: status || '',
     uid: user.uid || null,
-    firebaseKey: firebaseKey || null
+    firebaseKey: firebaseKey || null,
+    dogId: dogId || null
   });
 
   const handleSubmit = (e) => {
@@ -40,6 +44,9 @@ const WishListForm = ({
   //     [e.target.name]: e.target.value
   //   }));
   // };
+  // function refreshPage() {
+  // window.location.reload();
+  // }
 
   return (
     <div className='dForm'>
@@ -48,8 +55,8 @@ const WishListForm = ({
     autoComplete='off'
     onSubmit={handleSubmit}
     >
-        <h2>Add dog to wishlist? </h2>
-        <Button type='submit'>Add</Button>
+        <h5>Add this dog to Wishlist? </h5>
+        <Button type='submit'>Yes!</Button>
       </Form>
     </div>
   );
@@ -65,6 +72,7 @@ WishListForm.propTypes = {
   firebaseKey: PropTypes.string,
   setWishlist: PropTypes.func,
   user: PropTypes.any,
+  dogId: PropTypes.string
 };
 
 export default WishListForm;

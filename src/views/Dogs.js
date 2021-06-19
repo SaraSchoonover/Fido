@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import DogCard from '../App/components/DogCard';
-import { getDogs } from '../helpers/data/dogData';
+// import { getDogs } from '../helpers/data/dogData';
+import { mergedData } from '../helpers/data/wishListData';
+// import { mergedData } from '../helpers/data/wishListData';
 
 function Dogs({ admin, user, uid }) {
   const [dogs, setDogs] = useState([]);
 
   useEffect(() => {
-    getDogs()
+    mergedData(user)
       .then((dogsArray) => {
         setDogs(dogsArray);
       });
@@ -32,6 +34,7 @@ function Dogs({ admin, user, uid }) {
         admin={admin}
         user={user}
         uid={uid}
+        isFavorited={dogInfo.isFavorited}
         />
       ))}
       </div>

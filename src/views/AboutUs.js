@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 
 export default function About() {
   return (
@@ -16,12 +17,27 @@ export default function About() {
     </p>
     </div>
     <div className="contactStyles">
-
+    <div><i className="fab fa-twitter"> Twitter</i></div>
               <i className="fas fa-envelope-open-text"> Email</i>
             <div><a href="mailto:saramschoon@gmail.com" id="email" className="nav-link" target="_blank" rel="noreferrer"></a></div>
               <i className="fab fa-instagram"> Instagram</i>
            </div>
 
+           <div className="help">
+      <h2>Ways to help out! </h2>
+    <div className="donate">
+    <Button className="don"
+       onClick={() => ('addToWishList')}> Donate</Button>
+       </div>
+       <div className="foster">
+       <Button className="fos"
+       onClick={() => ('addToWishList')}> Foster</Button>
+       </div>
+       <div className="volunteer">
+       <Button className="vol"
+       onClick={() => ('addToWishList')}> Volunteer</Button>
+   </div>
+   </div>
   </>
   );
 }

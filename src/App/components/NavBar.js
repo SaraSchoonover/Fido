@@ -1,3 +1,6 @@
+/* eslint-disable import/no-duplicates */
+/* eslint-disable no-constant-condition */
+/* eslint-disable no-nested-ternary */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -11,6 +14,7 @@ import {
   Button,
 } from 'reactstrap';
 import { signOutUser } from '../../helpers/auth';
+import { signInUser } from '../../helpers/auth';
 
 const NavBar = ({ admin, user }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,7 +40,7 @@ const NavBar = ({ admin, user }) => {
   return (
     <div>
       <Navbar light expand="md">
-        <NavbarBrand href="/">Fido</NavbarBrand>
+        <NavbarBrand href="/"><img className="fidoLogo" src="https://firebasestorage.googleapis.com/v0/b/fido-e7f7f.appspot.com/o/fido-logo.png?alt=media&token=12839bc2-3912-4222-aedd-a80a23ec6921" alt="logo"/></NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
@@ -53,9 +57,9 @@ const NavBar = ({ admin, user }) => {
                 admin !== null
                 && <NavItem>
                   {
-                    admin
-                      ? <Button className='nav-link' color='link' onClick={signOutUser}>Logout</Button>
-                      : ''
+                  admin
+                    ? <Button className='nav-link' color='link' onClick={signOutUser}>Logout</Button>
+                    : <Button color="link" onClick={signInUser}>Sign In</Button>
                   }
                   {
                     user

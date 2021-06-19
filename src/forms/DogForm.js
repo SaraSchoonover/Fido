@@ -38,7 +38,7 @@ const DogForm = ({
   const handleInputChange = (e) => {
     setDog((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.name === 'age' ? Number(e.target.value) : e.target.value
     }));
   };
 
