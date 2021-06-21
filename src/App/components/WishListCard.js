@@ -21,8 +21,6 @@ const WishListCard = ({
   setWishlist,
   user,
 }) => {
-  // const [deleting, setDeleting] = useState(false);
-
   const handleClick = (fbKey, type) => {
     if (type === 'delete') {
       deleteWishList(fbKey, user)
@@ -32,7 +30,8 @@ const WishListCard = ({
 
   const deleteCard = (fbKey) => (
     <div className='userDelete'>
-      <Button onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i> Delete</Button>
+      <Button style={{ backgroundColor: '#aec5eb' }}
+      onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i> Delete</Button>
     </div>
   );
 
@@ -64,7 +63,8 @@ WishListCard.propTypes = {
   status: PropTypes.string,
   setWishlist: PropTypes.func,
   firebaseKey: PropTypes.string,
-  user: PropTypes.any
+  user: PropTypes.any,
+  isFavorited: PropTypes.bool
 };
 
 export default WishListCard;

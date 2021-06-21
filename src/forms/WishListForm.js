@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Button, Form
 } from 'reactstrap';
 import { addWishList } from '../helpers/data/wishListData';
-// import { funca } from '../helpers/data/wishListData';
-// import { addWishList, funca } from '../helpers/data/wishListData';
 
 const WishListForm = ({
   age,
@@ -16,8 +15,9 @@ const WishListForm = ({
   name,
   status,
   user,
-  dogId
+  dogId,
 }) => {
+  const history = useHistory();
   const [wishLists, setWishLists] = useState({
     age: age || '',
     breedId: breedId || '',
@@ -33,20 +33,11 @@ const WishListForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     addWishList(wishLists, user)
-      .then((dogsArray) => {
-        setWishLists(dogsArray);
+      .then(() => {
+        setWishLists();
+        history.push('/wishlist');
       });
   };
-
-  // const handleInputChange = (e) => {
-  //   setWishLists((prevState) => ({
-  //     ...prevState,
-  //     [e.target.name]: e.target.value
-  //   }));
-  // };
-  // function refreshPage() {
-  // window.location.reload();
-  // }
 
   return (
     <div className='dForm'>
@@ -55,8 +46,9 @@ const WishListForm = ({
     autoComplete='off'
     onSubmit={handleSubmit}
     >
-        <h5>Add this dog to Wishlist? </h5>
-        <Button type='submit'>Yes!</Button>
+        <h5>Add this dog to your Wishlist? </h5>
+        <Button style={{ backgroundColor: '#aec5eb' }}
+        type='submit'>Yes!</Button>
       </Form>
     </div>
   );
@@ -72,7 +64,7 @@ WishListForm.propTypes = {
   firebaseKey: PropTypes.string,
   setWishlist: PropTypes.func,
   user: PropTypes.any,
-  dogId: PropTypes.string
+  dogId: PropTypes.string,
 };
 
 export default WishListForm;

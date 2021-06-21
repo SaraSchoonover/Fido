@@ -59,12 +59,17 @@ const NavBar = ({ admin, user }) => {
                   {
                   admin
                     ? <Button className='nav-link' color='link' onClick={signOutUser}>Logout</Button>
-                    : <Button color="link" onClick={signInUser}>Sign In</Button>
+                    : ''
                   }
                   {
                     user
                       ? <Button className='nav-link' color='link' onClick={signOutUser}>Logout</Button>
                       : ''
+                  }
+                  {
+                    user !== admin
+                      ? ''
+                      : <Button color="link" onClick={signInUser}>Sign In</Button>
                   }
                 </NavItem>
               }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import WishListCard from '../App/components/WishListCard';
 import { getWishList } from '../helpers/data/wishListData';
 
-function WishList({ user }) {
+function WishList({ user, setDogs }) {
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function WishList({ user }) {
   // console.warn(mergedData(user));
   return (
     <div className="this">
-      <h2>Your Wishlist: </h2>
+      <h2>My Wishlist: </h2>
       <div className="card-container">
       {wishlist.map((dogInfo) => (
         <WishListCard
@@ -31,6 +31,7 @@ function WishList({ user }) {
         setWishlist={setWishlist}
         wishlist={wishlist}
         user={user}
+        setDogs={setDogs}
         />
       ))}
       </div>
@@ -40,7 +41,7 @@ function WishList({ user }) {
 
 WishList.propTypes = {
   user: PropTypes.any,
-
+  setDogs: PropTypes.func
 };
 
 export default WishList;
