@@ -27,8 +27,6 @@ function App() {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed && (authed.uid !== process.env.REACT_APP_ADMIN_UID)) {
         const userObj = {
-          // fullName: authed.displayName,
-          // profileImage: authed.photoURL,
           uid: authed.uid,
           user: authed.email
         };
