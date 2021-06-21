@@ -8,24 +8,24 @@ import { getDogs } from '../helpers/data/dogData';
 
 function App() {
   const [admin, setAdmin] = useState(null);
-  const [dogs, setDogs] = useState([]);
+  const [dog, setDog] = useState([]);
   const [user, setUser] = useState({});
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
       if (authed && (authed.uid === process.env.REACT_APP_ADMIN_UID)) {
         setAdmin(true);
-        getDogs().then((dogsArray) => setDogs(dogsArray));
+        getDogs().then((dogsArray) => setDog(dogsArray));
       } else if (admin || admin === null) {
         setAdmin(false);
-        getDogs().then((dogsArray) => setDogs(dogsArray));
+        getDogs().then((dogsArray) => setDog(dogsArray));
       }
     });
   }, []);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
-      if (authed) {
+      if (authed && (authed.uid !== process.env.REACT_APP_ADMIN_UID)) {
         const userObj = {
           // fullName: authed.displayName,
           // profileImage: authed.photoURL,
@@ -48,8 +48,8 @@ function App() {
     <Routes
        user={user}
        admin={admin}
-       dogs={dogs}
-       setDogs={setDogs}
+       dog={dog}
+       setDog={setDog}
       />
       </>
   );

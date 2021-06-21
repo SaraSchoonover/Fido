@@ -3,9 +3,13 @@ import PropTypes from 'prop-types';
 import DogCard from '../App/components/DogCard';
 // import { getDogs } from '../helpers/data/dogData';
 import { mergedData } from '../helpers/data/wishListData';
-// import { mergedData } from '../helpers/data/wishListData';
 
-function Dogs({ admin, user, uid }) {
+function Dogs({
+  admin,
+  user,
+  uid,
+  setDog
+}) {
   const [dogs, setDogs] = useState([]);
 
   useEffect(() => {
@@ -35,6 +39,7 @@ function Dogs({ admin, user, uid }) {
         user={user}
         uid={uid}
         isFavorited={dogInfo.isFavorited}
+        setDog={setDog}
         />
       ))}
       </div>
@@ -54,7 +59,8 @@ Dogs.propTypes = {
   setDogs: PropTypes.func,
   admin: PropTypes.any,
   user: PropTypes.any,
-  uid: PropTypes.any
+  uid: PropTypes.any,
+  setDog: PropTypes.func,
 };
 
 export default Dogs;

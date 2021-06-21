@@ -26,9 +26,11 @@ const DogCard = ({
   admin,
   user,
   uid,
-  isFavorited
+  isFavorited,
+  setDog
 }) => {
   const [editing, setEditing] = useState(false);
+  // const history = useHistory();
 
   const [adding, setAdding] = useState(false);
 
@@ -61,8 +63,8 @@ const DogCard = ({
 
   const userCard = (fbKey) => (
     <div className='editbtns'>
-      <Button
-       onClick={() => handleClick(fbKey, 'addToWishList')}> Add To Wishlist</Button>
+      <Button style={{ backgroundColor: '#aec5eb' }}
+       onClick={() => handleClick(fbKey, 'addToWishList')}> {adding ? 'Not Right Now' : 'Add To Wishlist'}</Button>
     </div>
   );
 
@@ -78,7 +80,7 @@ const DogCard = ({
           <CardText>Status: {status}</CardText>
           <CardText>Breed: {breedId}</CardText>
           { admin && editCard(firebaseKey) }
-          { isFavorited ? 'Added!' : userCard(firebaseKey) }
+          { isFavorited ? 'Added!' : user && userCard(firebaseKey) }
           { editing && <DogForm
               age={age}
               breedId={breedId}
@@ -106,6 +108,7 @@ const DogCard = ({
               user={user}
               uid={uid}
               dogId={firebaseKey}
+              setDog={setDog}
           /> }
           </CardBody>
       </Card>
@@ -126,7 +129,8 @@ DogCard.propTypes = {
   admin: PropTypes.any,
   user: PropTypes.any,
   uid: PropTypes.any,
-  isFavorited: PropTypes.bool
+  isFavorited: PropTypes.bool,
+  setDog: PropTypes.func
 };
 
 export default DogCard;
