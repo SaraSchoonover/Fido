@@ -31,6 +31,12 @@ Unauthenticated Users:
 
 ERD Link: https://dbdiagram.io/d/60315e1bfcdcb6230b20bbe2
 
+Project Board: https://github.com/SaraSchoonover/Fido/projects/1
+
 Figma Link: https://www.figma.com/file/nKQd7I8twdxlBRFX6Q7zB6/Mobile-Wireframe-UI-Kit-(Community)?node-id=143%3A4328
 
 Github Link: https://github.com/SaraSchoonover/Fido
+
+Netlify Link: https://ss-capstone-fido.netlify.app/
+
+List of Contributors: Sara Schoonover, https://github.com/SaraSchoonover?tab=repositories
