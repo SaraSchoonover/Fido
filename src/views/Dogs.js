@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import DogCard from '../App/components/DogCard';
 // import { getDogs } from '../helpers/data/dogData';
 import { mergedData } from '../helpers/data/wishListData';
+import Footer from '../App/components/Footer';
 
 function Dogs({
   admin,
@@ -43,6 +44,7 @@ function Dogs({
         />
       ))}
       </div>
+      <Footer />
     </div>
   );
 }

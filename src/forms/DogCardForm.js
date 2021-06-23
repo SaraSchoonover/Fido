@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {
   Button, Form, FormGroup, Input, Label
 } from 'reactstrap';
 import { addDogs, updateDogs } from '../helpers/data/dogData';
 
-const DogForm = ({
+const DogCardForm = ({
   age,
   breedId,
   description,
@@ -17,7 +16,6 @@ const DogForm = ({
   setDogs,
 
 }) => {
-  const history = useHistory();
   const [dog, setDog] = useState({
     age: age || '',
     breedId: breedId || '',
@@ -33,10 +31,7 @@ const DogForm = ({
     if (dog.firebaseKey) {
       updateDogs(dog).then(setDogs);
     } else {
-      addDogs(dog).then(setDogs)
-        .then(() => {
-          history.push('/dogs');
-        });
+      addDogs(dog).then(setDogs);
     }
   };
 
@@ -48,7 +43,7 @@ const DogForm = ({
   };
 
   return (
-    <div className='dForm'>
+    <div className='dcForm'>
     <Form
     id='addDogForm'
     autoComplete='off'
@@ -127,7 +122,7 @@ const DogForm = ({
   );
 };
 
-DogForm.propTypes = {
+DogCardForm.propTypes = {
   age: PropTypes.string,
   breedId: PropTypes.string,
   description: PropTypes.string,
@@ -139,4 +134,4 @@ DogForm.propTypes = {
   admin: PropTypes.any
 };
 
-export default DogForm;
+export default DogCardForm;
