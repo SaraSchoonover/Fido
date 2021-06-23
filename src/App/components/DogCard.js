@@ -9,9 +9,10 @@ import {
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { deleteDogs } from '../../helpers/data/dogData';
-import DogForm from '../../forms/DogForm';
+// import DogForm from '../../forms/DogForm';
 // import { addWishList } from '../../helpers/data/wishListData';
 import WishListForm from '../../forms/WishListForm';
+import DogCardForm from '../../forms/DogCardForm';
 
 const DogCard = ({
   age,
@@ -52,11 +53,11 @@ const DogCard = ({
 
   const editCard = (fbKey) => (
     <div className='editbtns'>
-      <Button onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i> Delete</Button>
-      <Button
+      <Button style={{ backgroundColor: '#aec5eb' }} onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i></Button>
+      <Button style={{ backgroundColor: '#aec5eb' }}
        onClick={() => handleClick(fbKey, 'edit')}>
       <i className="far fa-edit"></i>
-    {editing ? 'Close Form' : ' Edit'}
+    {editing ? 'Close Form' : ' '}
     </Button>
     </div>
   );
@@ -81,7 +82,7 @@ const DogCard = ({
           <CardText>Breed: {breedId}</CardText>
           { admin && editCard(firebaseKey) }
           { isFavorited ? 'Added!' : user && userCard(firebaseKey) }
-          { editing && <DogForm
+          { editing && <DogCardForm
               age={age}
               breedId={breedId}
               description={description}

@@ -40,7 +40,7 @@ const WishListForm = ({
   };
 
   return (
-    <div className='dForm'>
+    <div className='wForm'>
     <Form
     id='addDogForm'
     autoComplete='off'

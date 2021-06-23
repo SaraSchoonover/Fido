@@ -6,6 +6,14 @@ h2 {
   margin: auto;
 }
 
+.desc {
+  padding-bottom: .5em;
+  text-align: center;
+  padding-top: 2em;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
 .aboutUs {
   padding-bottom: .5em;
   text-align: center;
@@ -20,51 +28,59 @@ h2 {
 
 .donate {
   padding: 21px 34px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  font-family: "Helvetica Neue",Arial,sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  font-style: normal;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #fff;
-
-  border-color: #231f20;
   text-align: center;
+  width: 600px;
+  margin: auto;
 }
 
-.foster {
-  padding: 21px 34px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  font-family: "Helvetica Neue",Arial,sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  font-style: normal;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #fff;
-  background-color: lightblue;
-  border-color: #231f20;
-  text-align: center;
+.don-btn {
+  padding-left: 4em;
+  padding-right: 2em;
+  margin: 10px;
+  display: block;
 }
 
-.volunteer {
-  padding: 21px 34px;
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  font-family: "Helvetica Neue",Arial,sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  font-style: normal;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #fff;
- 
-  border-color: #231f20;
-  text-align: center;
+.fos-btn {
+  padding-left: 2em;
+  padding-right: 2em;
+  margin: 10px;
+  display: block;
 }
+
+.vol-btn {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 10px;
+    display: block;
+}
+
+.bio-img {
+  // padding-right: 21px;
+  // padding-left: 34px;
+  text-align: center;
+  margin: 10px;
+}
+
+.don-pic {
+  text-align: center;
+  // display: block;
+  vertical-align: middle;
+}
+
+.fos-pic {
+  margin: 5px;
+
+}
+
+.vol-pic {
+  margin: 5px;
+}
+
+.img-container {
+  width: 200px;
+}
+
+// .donate1, .donate2, .donate3 {
+//   display: inline;
+  
+// }
