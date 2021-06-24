@@ -22,7 +22,9 @@ function Dogs({
 
   return (
     <div className="this">
+      <div className='font'>
       <h2>Available Dogs: </h2>
+      </div>
       <div className="card-container">
       {dogs.map((dogInfo) => (
         <DogCard

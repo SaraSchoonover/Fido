@@ -47,7 +47,7 @@ const WishListForm = ({
     onSubmit={handleSubmit}
     >
         <h5>Add this dog to your Wishlist? </h5>
-        <Button style={{ backgroundColor: '#aec5eb' }}
+        <Button style={{ backgroundColor: '#aec5eb', border: '#FFFFFF' }}
         type='submit'>Yes!</Button>
       </Form>
     </div>

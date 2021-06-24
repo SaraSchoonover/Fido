@@ -4,6 +4,7 @@ h2 {
   text-align: center;
   padding-top: 2em;
   margin: auto;
+  font-family: 'Amatic SC', cursive;
 }
 
 .desc {
@@ -12,6 +13,9 @@ h2 {
   padding-top: 2em;
   margin-left: 100px;
   margin-right: 100px;
+  h2 {
+    text-align: center;
+  }
 }
 
 .aboutUs {
@@ -80,7 +84,11 @@ h2 {
   width: 200px;
 }
 
-// .donate1, .donate2, .donate3 {
-//   display: inline;
-  
-// }
+.bgImage2 {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/fido-e7f7f.appspot.com/o/dog-bg-2-whiteoverlay.jpg?alt=media&token=422661f8-9316-4733-a609-9804d59bfd2a');
+  height: 100vh;
+}
+
+.aboutTitle {
+  text-align: center !important; 
+}
