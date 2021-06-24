@@ -121,7 +121,7 @@ const DogForm = ({
             onChange={handleInputChange}
           />
         </FormGroup>
-        <Button style={{ backgroundColor: '#aec5eb' }} type='submit'>Submit</Button>
+        <Button style={{ backgroundColor: '#aec5eb', border: '#FFFFFF' }} type='submit'>Submit</Button>
       </Form>
     </div>
   );

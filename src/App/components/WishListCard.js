@@ -30,7 +30,7 @@ const WishListCard = ({
 
   const deleteCard = (fbKey) => (
     <div className='userDelete'>
-      <Button style={{ backgroundColor: '#aec5eb' }}
+      <Button style={{ backgroundColor: '#aec5eb', border: '#FFFFFF' }}
       onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i> Delete</Button>
     </div>
   );

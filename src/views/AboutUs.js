@@ -9,10 +9,17 @@ import Footer from '../App/components/Footer';
 export default function About() {
   return (
   <>
-  <div className='desc'>
+  <div className='bgImage2'>
+
+    <Container className='desc'>
+      <Row>
+  <Col></Col>
+  <Col>
+  <h2>Our Story:</h2>
+  <p>
   Our goal is to make shelters the first place potential adopters turn when looking to get a new pet, ensuring that all healthy and treatable pets find loving homes. We do this by breaking down misconceptions surrounding shelter pets and celebrating the unique bond between every shelter pet and parent.
   Please join us in committing to save as many lives as possible. Get involved. Adopt, foster and donate. Together we can change the world, one dog at a time...
-  </div>
+  </p>
   <h2>
     Contact Us:
     </h2>
@@ -23,12 +30,11 @@ export default function About() {
     </p>
     </div>
     <div className="contactStyles">
-    <div><i className="fab fa-twitter"> Twitter</i></div>
-              <i className="fas fa-envelope-open-text"> Email</i>
-            <div><a href="mailto:saramschoon@gmail.com" id="email" className="nav-link" target="_blank" rel="noreferrer"></a></div>
-              <i className="fab fa-instagram"> Instagram</i>
-           </div>
-
+             <div><i className="fab fa-twitter"> Twitter</i></div>
+             <div> <i className="fas fa-envelope-open-text"> Email</i></div>
+              <i className="fab fa-instagram-square"> Instagram</i>
+             <div><i className="fab fa-facebook"></i> Facebook</div>
+             </div>
            <div className="help">
       <h2>Ways To Help Out: </h2>
       <div className="bio-img">
@@ -60,6 +66,10 @@ export default function About() {
        </Row>
        </Container>
        </div>
+   </div>
+   </Col>
+   </Row>
+   </Container>
    </div>
    <Footer />
   </>

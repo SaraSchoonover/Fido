@@ -53,8 +53,8 @@ const DogCard = ({
 
   const editCard = (fbKey) => (
     <div className='editbtns'>
-      <Button style={{ backgroundColor: '#aec5eb' }} onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i></Button>
-      <Button style={{ backgroundColor: '#aec5eb' }}
+      <Button style={{ backgroundColor: '#FFFFFF', color: '#28282B', border: '#FFFFFF' }} onClick={() => handleClick(fbKey, 'delete')}><i className="far fa-trash-alt"></i></Button>
+      <Button style={{ backgroundColor: '#FFFFFF', color: '#28282B', border: '#FFFFFF' }}
        onClick={() => handleClick(fbKey, 'edit')}>
       <i className="far fa-edit"></i>
     {editing ? 'Close Form' : ' '}
@@ -64,13 +64,13 @@ const DogCard = ({
 
   const userCard = (fbKey) => (
     <div className='editbtns'>
-      <Button style={{ backgroundColor: '#aec5eb' }}
+      <Button style={{ backgroundColor: '#aec5eb', color: '#FFFFFF', border: '#FFFFFF' }}
        onClick={() => handleClick(fbKey, 'addToWishList')}> {adding ? 'Not Right Now' : 'Add To Wishlist'}</Button>
     </div>
   );
 
   return (
-      <Card>
+      <Card className='dogCard'>
         <CardBody>
           <CardTitle tag="h5">{name}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Age: {age}</CardSubtitle>
